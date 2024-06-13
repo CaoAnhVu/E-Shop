@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      th:layout:decorate="~{layout}">
+<head>
+    <title th:text="${title} ?: 'Products'">Products</title>
+    <link rel="stylesheet"
+
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> </head>
+<body>
+
+<section layout:fragment="content">
+    <h1>Products List</h1>
+    <div>
+        <a th:href="@{/products/add}" class="btn btn-primary mb-3">Add New Product</a>
+    </div>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category Name</th>
+            <th>Actions</th>
+            <th>Add To Cart</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${products}">
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.price}"></td>
+            <td th:text="${product.detail}"></td>
+            <td th:text="${product.category.name}"></td>
+            <td>
+                <a th:href="@{/products/edit/{id}(id=${product.id})}" class="btn btn-success btn-sm">Edit</a>
+                <a th:href="@{/products/delete/{id}(id=${product.id})}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Are you sure?')">Delete</a>  </td>
+            <td>
+                <form id="addToCartForm" th:action="@{/cart/add}" method="post" onsubmit="return validateQuantity()">
+                    <input type="number" id="quantity" name="quantity" min="1" th:max="${product.nums}" value="1" class="form-control d-inline-block" style="width: 70px;">
+                    <input type="hidden" id="productId" th:value="${product.id}" name="productId"/>
+                    <button type="submit" class="btn btn-warning btn-sm">Add to Cart</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<script>
+    function validateQuantity() {
+        const quantityInput = document.getElementById('quantity');
+        const maxQuantity = parseInt(quantityInput.getAttribute('max'), 10);
+        const quantity = parseInt(quantityInput.value, 10);
+
+        if (quantity > maxQuantity) {
+            alert(`Requested quantity exceeds available stock. Maximum available quantity is ${maxQuantity}.`);
+            return false; // Prevent form submission
+        }
+
+        return true; // Allow form submission
+    }
+</script>
+</body>
+</html>

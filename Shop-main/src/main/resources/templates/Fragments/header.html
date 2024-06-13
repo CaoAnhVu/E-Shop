@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<div class="header" th:fragment="header">
+    <div class="container">
+        <div class="row p-10">
+            <img th:src="@{wwwroot/images/banner-1.jpg}" th:width="300px" alt="PET'S STORE">
+        </div>
+
+        <div class="container">
+            <nav class="navbar navbar-inverse">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a th:href="@{/}">Home</a></li>
+                            <li><a th:href="@{/danh-cho-cho}">Coding</a></li>
+                            <li><a th:href="@{/danh-cho-meo}">Art</a></li>
+                            <li><a th:href="@{/bai-viet}">Blog</a></li>
+                            <li><a th:href="@{/lien-he}">Contact</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a th:href="@{/dang-ky}" data-toggle="modal" data-target="#modalSignup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a th:href="@{/dang-nhap}" data-toggle="modal" data-target="#modalLogin"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+</html>

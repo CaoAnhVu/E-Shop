@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="Fragments/head :: head">
+
+<!--</head>-->
+<body>
+<div th:replace="Fragments/header :: header">
+
+</div>
+
+<div th:replace="Fragments/content :: content(${products})"></div>
+
+<div th:replace="Fragments/footer :: footer"></div>
+
+
+<script th:src="@{/wwwroot/js/jquery.min.js}"></script>
+<script th:src="@{/wwwroot/js/bootstrap.min.js}"></script>
+</body>
+</html>

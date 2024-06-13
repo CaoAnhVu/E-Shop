@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<div class="content" th:fragment="content (products)">
+    <div class="container">
+        <div class="col-md-9">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                </ol>
+
+                <div class="carousel-inner">
+                    <div class="item" th:classappend="${iterStat.index == 0} ? 'active'" th:each="product, iterStat : ${products}" th:if="${product.img1 != null}">
+                        <img th:src="@{'/images/' + ${product.img1}}" alt="anh">
+                    </div>
+                </div>
+                <a class="left carousel-control" th:href="@{#myCarousel}" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" th:href="@{#myCarousel}" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <div class="panel panel-info panel-prod">
+                <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner fa-spin"></i>Anti Coder</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img th:src="@{https://learnodo-newtonic.com/wp-content/uploads/2017/01/Portrait-of-Jan-Six-1654-Rembrandt-van-Rijn.webp}" style="object-fit: cover; width: 234px; height: 210px;" class="img-rounded" alt="Áo cho chó đẹp tuyệt vời">
+                                <div class="caption">
+                                    <h4>PORTRAIT OF JAN SIX</h4>
+                                    <p>Giá: 10000 USD</p>
+                                    <p><a th:href="@{/mua-ngay}" class="btn btn-info" role="button"><i class="fa fa-shopping-cart"></i> Mua ngay</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img th:src="@{https://learnodo-newtonic.com/wp-content/uploads/2014/06/Self-Portrait-with-Beret-and-Turned-Up-Collar-by-Rembrandt.webp}" style="object-fit: cover; width: 234px; height: 210px;" class="img-rounded" alt="Khay giải quyết nổi buồn">
+                                <div class="caption">
+                                    <h4>SELF-PORTRAIT WITH BERET AND TURNED-UP COLLAR</h4>
+                                    <p>Giá: 150.000 USD</p>
+                                    <p><a th:href="@{/mua-ngay}" class="btn btn-info" role="button"><i class="fa fa-shopping-cart"></i> Mua ngay</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img th:src="@{https://learnodo-newtonic.com/wp-content/uploads/2017/01/Danae-1636-Rembrandt-van-Rijn.webp}" style="object-fit: cover; width: 234px; height: 210px;" class="img-rounded" alt="Hạt này ăn mau mập lắm">
+                                <div class="caption">
+                                    <h4>DANAË</h4>
+                                    <p>Giá: 150.000 USD</p>
+                                    <p><a th:href="@{/mua-ngay}" class="btn btn-info" role="button"><i class="fa fa-shopping-cart"></i> Mua ngay</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <p class="more-prod"><a th:href="@{/xem-them}" target="_blank">Xem thêm sản phẩm...</a></p>
+                </div>
+            </div>
+            <div class="panel panel-danger panel-prod">
+                <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner fa-spin"></i> Art</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img th:src="@{https://learnodo-newtonic.com/wp-content/uploads/2017/01/The-Jewish-Bride-1667-Rembrandt-van-Rijn.webp}" style="object-fit: cover; width: 234px; height: 210px;" class="img-rounded" alt="Mều ngốc ngếch">
+                                <div class="caption">
+                                    <h4>THE JEWISH BRIDE</h4>
+                                    <p>Giá: 150.000 VNĐ</p>
+                                    <p><a th:src="@{/mua-ngay}" class="btn btn-info" role="button"><i class="fa fa-shopping-cart"></i> Mua ngay</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img th:src="@{https://learnodo-newtonic.com/wp-content/uploads/2021/06/The-Taking-of-Christ-1602-Caravaggio.jpg.webp}" style="object-fit: cover; width: 234px; height: 210px;" class="img-rounded" alt="Balo phi hành gia">
+                                <div class="caption">
+                                    <h4>CONVERSION ON THE WAY TO DAMASCUS</h4>
+                                    <p>Giá: 150.000 VNĐ</p>
+                                    <p><a th:href="@{/mua-ngay}" class="btn btn-info" role="button"><i class="fa fa-shopping-cart"></i> Mua ngay</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="thumbnail">
+                                <img th:src="@{https://learnodo-newtonic.com/wp-content/uploads/2017/01/The-Anatomy-Lesson-of-Dr.-Nicolaes-Tulp-1632-Rembrandt-van-Rijn.webp}" style="object-fit: cover; width: 234px; height: 210px;" class="img-rounded" alt="Cây cho mèo phá">
+                                <div class="caption">
+                                    <h4>THE TAKING OF CHRIST</h4>
+                                    <p>Giá: 150.000 VNĐ</p>
+                                    <p><a th:href="@{/mua-ngay}" class="btn btn-info" role="button"><i class="fa fa-shopping-cart"></i> Mua ngay</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <p class="more-prod"><a th:href="@{/xem-them}" target="_blank">Xem thêm sản phẩm...</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="panel panel-primary panel-post">
+                <div class="panel-heading panel-heading-prod"><i class="fa fa-comments-o"></i>LEARNING TECHNIQUES</div>
+                <div class="panel-body panel-body-post">
+                    <h4><a th:href="@{/bai-viet/cach-nuoi-meo-mau-map}">HOW TO EXPAND YOUR VOCABULARY QUICKLY</a></h4>
+                    <p>Learnodo Newtonic will help you expand your vocabulary quickly by introducing you to root words. A root word is a word from which other words are derived by adding suffixes</p>
+
+                    <h4><a th:href="@{/bai-viet/lam-shao-husky-bot-ngao}">HOW TO CHALLENGE YOUR BRAIN | BUILD UP AN APTITUDE FOR LEARNING</a></h4>
+                    <p>With the fading of the age of war, human mind has emerged as the single greatest asset on this planet. And though we seem to be moving ahead, we seem</p>
+                </div>
+                <div class="panel-footer">
+                    <p class="more-prod"><a th:href="@{/xem-them-bai-viet}" target="_blank">More...</a></p>
+                </div>
+            </div>
+
+            <div class="panel panel-success panel-post">
+                <div class="panel-heading panel-heading-prod"><i class="fa fa-paper-plane"></i> Quảng cáo</div>
+                <div class="panel-body panel-body-post">
+                    <img th:src="@{https://learnodo-newtonic.com/wp-content/uploads/2013/05/Mnemonic-Video-Dictionary-Featured-1.webp}" class="img-rounded img-adv" alt="Quảng cáo"/>
+                    <marquee>VIDEO MNEMONIC DICTIONARY!</marquee>
+                </div>
+            </div>
+
+            <div class="youtube">
+                <iframe width="110%" height="300" src="https://www.youtube.com/embed/mGyN2NMuS4A" title="Tyla - ART (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="map">
+                <iframe th:src="@{'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4206985418705!2d106.78253487570396!3d10.855572157727538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276e7ea103df%3A0xb6cf10bb7d719327!2zSFVURUNIIC0gxJDhuqFpIGjhu41jIEPDtG5nIG5naOG7hyBUUC5IQ00gKFRodSBEdWMgQ2FtcHVzKQ!5e0!3m2!1svi!2s!4v1710172843840!5m2!1svi!2s'}" width="110%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+</html>
